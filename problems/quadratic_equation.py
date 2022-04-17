@@ -9,4 +9,3 @@ def gen_problem(variables):
     solution_1 = (-b + np.sqrt(b**2 - 4*a*c))/(2*a)
     solution_2 = (-b - np.sqrt(b**2 - 4*a*c))/(2*a)
     return {'problem': problem,  'solution' : f'x = {str(solution_1)}, x = {str(solution_2)}', 'worked_solution' : f'x = {str(solution_1)}, x = {str(solution_2)}'}
-
