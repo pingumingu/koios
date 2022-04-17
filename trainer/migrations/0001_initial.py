@@ -34,12 +34,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.UUIDField(default=uuid.uuid4, help_text='Unique ID for this particular generated problem across whole application', primary_key=True, serialize=False)),
                 ('variables', models.CharField(help_text='Enter the variables separated by commas', max_length=100)),
-                ('problem', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='quadratics_trainer.problem')),
+                ('problem', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='trainer.problem')),
             ],
         ),
         migrations.AddField(
             model_name='problem',
             name='tag',
-            field=models.ManyToManyField(help_text='Select tags for this problem', to='quadratics_trainer.Tag'),
+            field=models.ManyToManyField(help_text='Select tags for this problem', to='trainer.Tag'),
         ),
     ]

@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Add the quadratics_trainer
-    'quadratics_trainer.apps.QuadraticsTrainerConfig', #This object was created for us in /quadratics_trainer/apps.py
+    #Add the trainer app
+    'trainer.apps.TrainerConfig', #This object was created for us in /trainer/apps.py
 ]
 
 MIDDLEWARE = [

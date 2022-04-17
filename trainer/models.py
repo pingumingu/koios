@@ -2,9 +2,7 @@ from django.db import models
 from django.urls import reverse
 import importlib
 # Create your models here.
-#perhaps write some logic here for the generated solutions
-# for the quadratics trainer? can use a folder later with separate python files for each type of problem
-#doesn't have to be in a class, can just be some function definitions, can put in a separate file later
+
 
 
 class Tag(models.Model):
@@ -65,7 +63,7 @@ class ProblemInstance(models.Model):
 
     def __str__(self):
         """
-        String for repreenting the Model object.
+        String for representing the Model object.
         """
         return str(self.id)
 
@@ -75,4 +73,4 @@ class TimeTaken(models.Model):
     """
 
     problem_instance = models.ForeignKey(ProblemInstance, on_delete=models.PROTECT, null=False)
-    time = models.TimeField()
+    time = models.FloatField()

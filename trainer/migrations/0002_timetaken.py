@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('quadratics_trainer', '0001_initial'),
+        ('trainer', '0001_initial'),
     ]
 
     operations = [
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('time', models.TimeField()),
-                ('problem_instance', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='quadratics_trainer.probleminstance')),
+                ('problem_instance', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='trainer.probleminstance')),
             ],
         ),
     ]
