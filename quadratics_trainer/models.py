@@ -36,6 +36,13 @@ class Problem(models.Model):
         """Returns the URL to access a detail record for this Problem."""
         return reverse('problem-detail', args=[str(self.id)])
 
+    def display_tag(self):
+        """Create a string for the first 3 Tags. This is required to display multiple tags in Admin."""
+        return ', '.join(tag.name for tag in self.tag.all()[:3])
+
+    display_tag.short_description = 'Tag'
+
+
 import uuid # Required for unique problem instances
  
 class ProblemInstance(models.Model):
@@ -55,3 +62,17 @@ class ProblemInstance(models.Model):
 
         module = importlib.import_module(module_name)
         return getattr(module, function_name)(self.variables)
+
+    def __str__(self):
+        """
+        String for repreenting the Model object.
+        """
+        return str(self.id)
+
+class TimeTaken(models.Model):
+    """
+    Model for representing how long it takes for someone to solve a particular problem instance
+    """
+
+    problem_instance = models.ForeignKey(ProblemInstance, on_delete=models.PROTECT, null=False)
+    time = models.TimeField()
