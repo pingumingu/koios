@@ -56,8 +56,11 @@ class ProblemInstance(models.Model):
 
     def get_problem_solution_data(self):
         module_name = self.problem.problem_module
+        #takes koios_webapp.problems.quadratic_equation and turns into problems.quadratic_equation
+        #when the runserver is run, it runs from the outer koios_webapp directory, so we import relative
+        #to that directly i.e. import problems.quadratic_equation
+        module_name = '.'.join(module_name.split('.')[1:3])
         function_name = self.problem.problem_function
-
         module = importlib.import_module(module_name)
         return getattr(module, function_name)(self.variables)
 

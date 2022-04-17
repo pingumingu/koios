@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Koios {{ base_problem }} Training Page </h1>
+    <p>Welcome to Koios, a website developed by <em>Ming</em>!</p>
+
+
+    {% for problem_instance in problem_list %}
+        <p> {{ problem_instance.problem }} </p>
+    {% endfor %}
+{% endblock %}

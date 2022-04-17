@@ -24,13 +24,13 @@ urlpatterns = [
 from django.urls import include
 
 urlpatterns += [
-    path('trainer/', include('trainer.urls')),
+    path('train/', include('trainer.urls')),
 ]
 
 #Add URL maps to redirect the base URL to our application
 from django.views.generic import RedirectView
 urlpatterns += [
-    path('', RedirectView.as_view(url='trainer/', permanent=True)),
+    path('', RedirectView.as_view(url='train/', permanent=True)),
 ]
 
 # Use static() to add URL mapping to serve static files during development (only)
