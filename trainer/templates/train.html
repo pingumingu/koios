@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
+{% block scripts %}
+    <script src="{% static 'js/train.js' %}"></script>
+{% endblock %}
 
 {% block content %}
     <h1>Koios {{ base_problem }} Training Page </h1>
@@ -6,6 +10,7 @@
 
 
     {% for problem_instance in problem_list %}
-        <p> {{ problem_instance.problem }} </p>
+        <button id = "show_hide_button" onclick='toggleDiv("{{ problem_instance.id }}")'> Click to hide the problem </button>
+        <p id="problem_instance_{{ problem_instance.id }}"> {{ problem_instance.problem }} </p>
     {% endfor %}
 {% endblock %}

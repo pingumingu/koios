@@ -62,7 +62,7 @@ class ProblemInstance(models.Model):
         module_name = '.'.join(module_name.split('.')[1:3])
         function_name = self.problem.problem_function
         module = importlib.import_module(module_name)
-        return getattr(module, function_name)(self.variables)
+        return getattr(module, function_name)(self.variables,self.id)
 
     def __str__(self):
         """
