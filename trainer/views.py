@@ -32,7 +32,7 @@ def train(request, base_problem):
 
     problem_instances = list(ProblemInstance.objects.filter(problem__name = base_problem))
     random_items = random.sample(problem_instances, 5)
-    problem_list = [problem.get_problem_solution_data for problem in random_items]
+    problem_list = [problem.get_problem_solution_data() for problem in random_items]
 
     context = {
         'problem_list': problem_list,

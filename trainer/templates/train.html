@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block scripts %}
+    {# | is template filter, turns problem_list context variable into json which can be accessible by train.js #}
+    {{ problem_list|json_script:"problem_list" }}
     <script src="{% static 'js/train.js' %}"></script>
 {% endblock %}
 
@@ -12,5 +14,6 @@
     {% for problem_instance in problem_list %}
         <button id = "show_hide_button" onclick='toggleDiv("{{ problem_instance.id }}")'> Click to hide the problem </button>
         <p id="problem_instance_{{ problem_instance.id }}"> {{ problem_instance.problem }} </p>
+        <input type = 'text' id = "{{ problem_instance.id }}_input"></input>
     {% endfor %}
 {% endblock %}
