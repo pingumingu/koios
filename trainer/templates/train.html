@@ -12,8 +12,9 @@
 
 
     {% for problem_instance in problem_list %}
-        <button id = "show_hide_button" onclick='toggleDiv("{{ problem_instance.id }}")'> Click to hide the problem </button>
-        <p id="problem_instance_{{ problem_instance.id }}"> {{ problem_instance.problem }} </p>
-        <input type = 'text' id = "{{ problem_instance.id }}_input"></input>
+        <div class = "cycle-hide">
+            <p id="problem_instance_{{ problem_instance.id }}"> {{ problem_instance.problem }} </p>
+            <input type = 'text' id = "{{ problem_instance.id }}_input"></input>
+        </div>
     {% endfor %}
 {% endblock %}
