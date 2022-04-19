@@ -1,13 +1,32 @@
+body { margin:0; /* This is used to reset any browser-default margins */ }
+
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
     list-style: none;
 }
 
+
 .cycle-hide, #results-page {
     display: none;
 }
 
+.problem {
+    height: 15vh;
+    font-size : 10vh;
+}
+
+.answer-input {
+    height: 15vh;
+    font-size : 10vh;
+}
+
 .active {
     display: block;
+}
+
+.centred {
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

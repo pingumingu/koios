@@ -13,16 +13,19 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Koios {{ base_problem }} Training Page </h1>
-    <p>Welcome to Koios, a website developed by <em>Ming</em>!</p>
+    <div>
+        <h1 class = "centred">Koios {{ base_problem }} Training Page </h1>
+        <p class = "centred">Welcome to Koios, a website developed by Ming!</p>
+    </div>
 
-
-    {% for problem_instance in problem_list %}
-        <div class = "cycle-hide">
-            <p id="problem_instance_{{ problem_instance.id }}"> {{ problem_instance.problem }} </p>
-            <input type = 'text' id = "{{ problem_instance.id }}_input"></input>
-        </div>
-    {% endfor %}
+    <div class = "centred">
+        {% for problem_instance in problem_list %}
+            <div class = "cycle-hide">
+                <p id="problem_instance_{{ problem_instance.id }}" class = "problem"> {{ problem_instance.problem }} </p>
+                <input type = 'text' id = "{{ problem_instance.id }}_input" class = "answer-input"></input>
+            </div>
+        {% endfor %}
+    </div>
 
     <div id = "results-page">
         <h1> SOLUTIONS </h1>
@@ -34,3 +37,5 @@
     </div>
 
 {% endblock %}
+
+
