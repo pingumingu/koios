@@ -17,4 +17,14 @@
             <input type = 'text' id = "{{ problem_instance.id }}_input"></input>
         </div>
     {% endfor %}
+
+    <div id = "results-page">
+        <h2> SOLUTIONS </h2>
+        {% for problem_instance in problem_list %}
+            <p> {{ problem_instance.problem }} </p>
+            <p id = "time_taken_{{ problem_instance.id }}"></p>
+            <p> {{ problem_instance.solution }} </p>
+        {% endfor %}
+    </div>
+
 {% endblock %}

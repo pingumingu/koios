@@ -5,7 +5,11 @@ function toggleDiv(id) {
     div.style.visibility = div.style.visibility == "hidden" ? "visible" : "hidden";
 }
 
-function cycleVisibility() {
+function timeDelta(times) {
+  return (times.map((element, index, array) => element - (array[index - 1] ?? 0)).slice(1))
+}
+
+function cycleVisibility(times) {
     //ev.preventDefault();
   
     // get a nodeList of all the divs
@@ -19,9 +23,24 @@ function cycleVisibility() {
   
         // check wheter you're at the end of nodeList 
         const nextIndex = i < nlist.length - 1 ? i + 1 : 0;
-  
-        // and add the class that makes next (or first) div visible
-        nlist[nextIndex].classList.add('active');
+        
+        if (nextIndex == 0) {
+          time_taken = timeDelta(times);
+          var j = 0;
+          problem_list.forEach( problem => {
+            document.getElementById("time_taken_"+problem.id).innerHTML = String(time_taken[j]);
+            console.log(document.getElementById("time_taken_"+problem.id))
+            j = j+1;
+          });
+          console.log(j);
+          var results_page = document.getElementById("results-page");
+          results_page.removeAttribute('id');
+          results_page.classList.add('active');
+        } else {
+          // and add the class that makes next div visible
+          nlist[nextIndex].classList.add('active');
+        }
+
   
         // exit the loop
         break;
@@ -29,8 +48,12 @@ function cycleVisibility() {
     }
   }
 
+
+
 //code for verifying if a solution is correct or not
 window.onload = function() {
+    var start = Date.now()
+    var times = [start]
     //first div.cycle-hide element is shown
     document.querySelector('div.cycle-hide').classList.add('active');
     // for each problem in problem_list passed through the context, add event listeners for the input box to test answer validity
@@ -38,7 +61,9 @@ window.onload = function() {
         document.getElementById(problem.id+"_input").addEventListener("input", function(event) {
             //console.log(event.target.value)
             if (event.target.value == problem.solution) {
-                cycleVisibility()
+                event.target.value = "";
+                times.push(Date.now());
+                cycleVisibility(times);
             };  
           });
     })

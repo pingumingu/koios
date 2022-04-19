@@ -4,7 +4,7 @@
     list-style: none;
 }
 
-.cycle-hide {
+.cycle-hide, #results-page {
     display: none;
 }
 
