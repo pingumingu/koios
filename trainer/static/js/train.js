@@ -25,14 +25,13 @@ function cycleVisibility(times) {
         const nextIndex = i < nlist.length - 1 ? i + 1 : 0;
         
         if (nextIndex == 0) {
-          time_taken = timeDelta(times);
+          // converts milliseconds to seconds
+          time_taken = timeDelta(times).map((element) => Math.round(element/1000));
           var j = 0;
           problem_list.forEach( problem => {
-            document.getElementById("time_taken_"+problem.id).innerHTML = String(time_taken[j]);
-            console.log(document.getElementById("time_taken_"+problem.id))
+            document.getElementById("time_taken_"+problem.id).innerHTML = "Time taken: " +String(time_taken[j]) +" seconds";
             j = j+1;
           });
-          console.log(j);
           var results_page = document.getElementById("results-page");
           results_page.removeAttribute('id');
           results_page.classList.add('active');

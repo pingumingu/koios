@@ -4,6 +4,12 @@
     {# | is template filter, turns problem_list context variable into json which can be accessible by train.js #}
     {{ problem_list|json_script:"problem_list" }}
     <script src="{% static 'js/train.js' %}"></script>
+
+    {# mathjax script for rendering latex #}
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -19,11 +25,11 @@
     {% endfor %}
 
     <div id = "results-page">
-        <h2> SOLUTIONS </h2>
+        <h1> SOLUTIONS </h1>
         {% for problem_instance in problem_list %}
-            <p> {{ problem_instance.problem }} </p>
+            <p> Question : {{ problem_instance.problem }} </p>
             <p id = "time_taken_{{ problem_instance.id }}"></p>
-            <p> {{ problem_instance.solution }} </p>
+            <p> Answer : \({{ problem_instance.solution }}\) </p>
         {% endfor %}
     </div>
 
