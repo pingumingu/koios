@@ -38,6 +38,8 @@ function cycleVisibility(times) {
         } else {
           // and add the class that makes next div visible
           nlist[nextIndex].classList.add('active');
+          // focuses the next div input box
+          nlist[nextIndex].querySelector("input").focus();
         }
 
   
@@ -57,7 +59,8 @@ window.onload = function() {
     document.querySelector('div.cycle-hide').classList.add('active');
     // for each problem in problem_list passed through the context, add event listeners for the input box to test answer validity
     problem_list.forEach( problem => {
-        document.getElementById(problem.id+"_input").addEventListener("input", function(event) {
+        answer_box = document.getElementById(problem.id+"_input")
+        answer_box.addEventListener("input", function(event) {
             //console.log(event.target.value)
             if (event.target.value == problem.solution) {
                 event.target.value = "";
