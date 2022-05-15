@@ -8,7 +8,7 @@ For cloning:
 4. Create Problem models for the problems you want to showcase (e.g: Quadratic Equations) by visiting the admin site
 5. python manage.py shell
 6. from trainer.models import Problem, ProblemInstance
-7. from problems.quadratic_equation_database import gen_problems
+7. from problems.quadratic_equation import gen_problems_database
 8. gen_problems()
 
 
