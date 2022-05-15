@@ -26,7 +26,6 @@ body { margin:0; /* This is used to reset any browser-default margins */ }
 }
 
 .centred {
-    display: flex;
     justify-content: center;
     text-align: center;
 }

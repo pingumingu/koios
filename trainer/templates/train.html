@@ -26,17 +26,23 @@
         {% endfor %}
     </div>
 
-    <div class = "centred" id = "results-page">
-        <h1> SOLUTIONS </h1>
-        {% for problem_instance in problem_list %}
-            <span class = "centred">
-                <p> Question : {{ problem_instance.problem }} </p>
-                <p id = "time_taken_{{ problem_instance.id }}"></p>
-                <p> Answer : \({{ problem_instance.solution }}\) </p>
-            </span>
-        {% endfor %}
+    
+    {# bootstrap grid system: containers > rows > columns is the grid system nesting hierarchy #}
+    <div class = "container-fluid text-center" id = "results-page">
+        <div class = "row">
+            <h1>SOLUTIONS</h1>
+        </div>
+        <div class = "row">
+            {% for problem_instance in problem_list %}
+                <div class = "row">
+                    <p> Question : {{ problem_instance.problem }} </p>
+                    <p id = "time_taken_{{ problem_instance.id }}"></p>
+                    <p> Answer : \({{ problem_instance.solution }}\) </p>
+                </div>
+            {% endfor %}
+        </div>
         {# the refresh button to train more problems #}
-        <button type="button" onclick = "window.location.reload()" class="btn btn-primary refresh-button">Train</button>
+        <button type="button" onclick = "window.location.reload()" class="btn btn-primary refresh-button row">Train</button>
     </div>
 
 {% endblock %}
