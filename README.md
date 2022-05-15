@@ -13,3 +13,9 @@ For cloning:
 
 
 Now the website should be functional, visit /train/quadratic_equation
+
+Module adding workflow:
+
+1. add python module in problems folder
+2. create Problem in django admin
+3. run gen_problems_database() as above

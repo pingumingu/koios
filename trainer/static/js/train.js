@@ -1,5 +1,4 @@
 const problem_list = JSON.parse(document.getElementById('problem_list').textContent);
-
 function toggleDiv(id) {
     var div = document.getElementById("problem_instance_"+id);
     div.style.visibility = div.style.visibility == "hidden" ? "visible" : "hidden";
@@ -21,7 +20,7 @@ function cycleVisibility(times) {
       if (nlist[i].className.includes('active')) {
         nlist[i].classList.remove('active');
   
-        // check wheter you're at the end of nodeList 
+        // check whether you're at the end of nodeList 
         const nextIndex = i < nlist.length - 1 ? i + 1 : 0;
         
         if (nextIndex == 0) {
@@ -48,8 +47,6 @@ function cycleVisibility(times) {
       }
     }
   }
-
-
 
 //code for verifying if a solution is correct or not
 window.onload = function() {

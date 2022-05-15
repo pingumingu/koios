@@ -15,7 +15,6 @@
 {% block content %}
     <div>
         <h1 class = "centred">Koios {{ base_problem }} Training Page </h1>
-        <p class = "centred">Welcome to Koios, a website developed by Ming!</p>
     </div>
 
     <div class = "centred">
@@ -27,13 +26,17 @@
         {% endfor %}
     </div>
 
-    <div id = "results-page">
+    <div class = "centred" id = "results-page">
         <h1> SOLUTIONS </h1>
         {% for problem_instance in problem_list %}
-            <p> Question : {{ problem_instance.problem }} </p>
-            <p id = "time_taken_{{ problem_instance.id }}"></p>
-            <p> Answer : \({{ problem_instance.solution }}\) </p>
+            <span class = "centred">
+                <p> Question : {{ problem_instance.problem }} </p>
+                <p id = "time_taken_{{ problem_instance.id }}"></p>
+                <p> Answer : \({{ problem_instance.solution }}\) </p>
+            </span>
         {% endfor %}
+        {# the refresh button to train more problems #}
+        <button type="button" onclick = "window.location.reload()" class="btn btn-primary refresh-button">Train</button>
     </div>
 
 {% endblock %}
