@@ -11,10 +11,13 @@ def index(request):
     num_instances = ProblemInstance.objects.all().count()
     num_solves = TimeTaken.objects.all().count()
 
+    base_problem_list = Problem.objects.all()
+
     context = {
         'num_problems': num_problems,
         'num_instances': num_instances,
         'num_solves': num_solves,
+        'base_problem_list': base_problem_list,
     }
 
     # Render the HTML template index.html with the data in the context variable

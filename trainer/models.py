@@ -31,8 +31,8 @@ class Problem(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        """Returns the URL to access a detail record for this Problem."""
-        return reverse('problem-detail', args=[str(self.id)])
+        """Returns the URL to the training page for this Problem."""
+        return reverse('train', args=['_'.join(self.name.split(' ')).lower()])
 
     def display_tag(self):
         """Create a string for the first 3 Tags. This is required to display multiple tags in Admin."""

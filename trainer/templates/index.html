@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Koios Homepage</h1>
-  <p>Welcome to Koios, a website developed by <em>Ming</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>The Koios webapp has the following record counts:</p>
-  <ul>
-    <li><strong>Base Problems:</strong> {{ num_problems }}</li>
-    <li><strong>Problem Instances:</strong> {{ num_instances }}</li>
-    <li><strong>Problems Solved:</strong> {{ num_solves}}</li>
-  </ul>
+  <div class = "container-fluid text-center">
+    <h1>Koios Homepage</h1>
+    <p>Welcome to Koios, a website developed by <em>Ming</em>!</p>
+    <h2>Dynamic content</h2>
+    <p>The Koios webapp has the following record counts:</p>
+    <ul>
+      <li><strong>Base Problems:</strong> {{ num_problems }}</li>
+      <li><strong>Problem Instances:</strong> {{ num_instances }}</li>
+      <li><strong>Problems Solved:</strong> {{ num_solves}}</li>
+    </ul>
+  </div>
+
+  <div class = "container-fluid text-center">
+    {% for base_problem in base_problem_list %}
+        <div class = "row">
+          <a href="{{ base_problem.get_absolute_url }}" class="btn btn-primary">{{ base_problem.name }}</a>
+        </div>
+    {% endfor %}
+  </div>
+
+
 {% endblock %}
