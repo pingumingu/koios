@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Add the trainer app
     'trainer.apps.TrainerConfig', #This object was created for us in /trainer/apps.py
+    #Add user app
+    'user.apps.UserConfig', #may need to be just 'user' here?
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'user.User' #users the User model in the user app for authentication

@@ -3,8 +3,6 @@ from django.urls import reverse
 import importlib
 # Create your models here.
 
-
-
 class Tag(models.Model):
     """Model representing a book genre."""
     name = models.CharField(max_length=200, help_text='Enter a tag name(s) (e.g. Maths, Year 7, Functions)')
@@ -21,8 +19,8 @@ class Problem(models.Model):
 
     tag = models.ManyToManyField(Tag, help_text = 'Select tags for this problem')
     
-    problem_module = models.CharField(max_length = 100)
-    problem_function = models.CharField(max_length = 100)
+    problem_module = models.CharField(max_length = 100, help_text = 'eg: koios_webapp.problems.quadratic_trainer')
+    problem_function = models.CharField(max_length = 100, help_text = "gen_problem")
 
     def __str__(self):
         """

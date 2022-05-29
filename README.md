@@ -19,3 +19,10 @@ Module adding workflow:
 1. add python module in problems folder
 2. create Problem in django admin
 3. run gen_problems_database() as above
+
+Resetting migrations:
+
+1. Delete everything in migrations folder under every app except for __init__.py
+2. Delete the database file db.sqlite3
+3. After making changes, python manage.py makemigrations
+4. python manage.py migrate
