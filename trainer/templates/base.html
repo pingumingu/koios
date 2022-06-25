@@ -25,7 +25,13 @@
       </div>
       <div class="offcanvas-body">
         <div>
-          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+          {% if user.is_authenticated %}
+            <li>User: {{ user.get_username }}</li>
+            <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+          {% else %}
+            <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+          {% endif %}
+          </ul>
         </div>
         <div class="dropdown mt-3">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
