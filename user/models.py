@@ -5,5 +5,5 @@ import importlib
 # Create your models here.
 
 class User(AbstractUser):
-    pass
+    koios_points = models.IntegerField(default = 0, help_text = 'number of koios points')
 # Create your models here.

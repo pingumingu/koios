@@ -41,8 +41,12 @@
                 </div>
             {% endfor %}
         </div>
-        {# the refresh button to train more problems #}
-        <button type="button" onclick = "window.location.reload()" class="btn btn-primary refresh-button row">Train</button>
+        {# the refresh button to train more problems, action="" send the post request to the same page #}
+        <form action="" method="post">
+            {% csrf_token %}
+            <input class="btn btn-primary row" type="submit" value="Submit">
+        </form>
+        {# <button type="button" onclick = "window.location.reload()" class="btn btn-primary refresh-button row">Train</button> #}
     </div>
 
 {% endblock %}
